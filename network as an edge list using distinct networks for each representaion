@@ -1,0 +1,27 @@
+#iii) a network as an edge list using distinct networks for each representaion.
+# Install and load the igraph package
+if (!requireNamespace("igraph", quietly = TRUE)) {
+  install.packages("igraph")
+}
+library(igraph)
+
+# Create a simple network
+edges <- data.frame(
+  from = c(1, 1, 2, 2, 3),
+  to = c(2, 3, 3, 4, 4)
+)
+
+# Create a sociogram (network graph)
+graph_sociogram <- graph_from_data_frame(edges, directed = FALSE)
+plot(graph_sociogram, main = "Sociogram (Network Graph)")
+
+
+# Create a network matrix
+graph_matrix <- as.matrix(get.adjacency(graph_sociogram, sparse = FALSE))
+print("Network Matrix:")
+print(graph_matrix)
+
+# Create an edge list
+edge_list <- get.data.frame(graph_sociogram)
+print("Edge List:")
+print(edge_list)
