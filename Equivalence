@@ -1,0 +1,20 @@
+#Structural equivalence
+#Automatic equivalence &
+#Regular equivalence from a network
+
+install.packages("sna")
+library(sna)
+library(igraph)
+
+links2<-read.csv(choose.files(),header = T)
+#Media-User-Example-EDGES
+head(links2)
+eq<- equiv.clust(dat=links2)
+links2<-read.csv(choose.files(),header = T,row.names = 1)
+head(links2)
+eq<-equiv.clust(dat=links2)
+plot(eq)
+g.se<-sedist(links2)
+plot(cmdscale(as.dist(g.se)))
+b<-blockmodel(links2,eq,h=10)
+plot(b)
