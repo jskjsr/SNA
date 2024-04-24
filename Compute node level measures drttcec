@@ -1,8 +1,8 @@
 #GETTING NODES AND EDGES
 nodes <-read.csv(file.choose(),header = T, as.is = T)
-//Media example nodes
+#Media example nodes
 edges <-read.csv(file.choose(),header = T, as.is = T)
-//media example edges
+#media example edges
 head(nodes)
 head(edges)
 g<-graph.data.frame(g-edges,directed = T, vertices = nodes)
